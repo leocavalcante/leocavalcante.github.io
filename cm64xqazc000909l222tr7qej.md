@@ -134,9 +134,8 @@ project/
     cmd/
         app/
             main.go
-    pkg/
-        mathutils/
-            math.go
+    mathutils/
+        math.go
     internal/
         db/
             connection.go
@@ -263,15 +262,26 @@ for val := range ch {
 
 ### 3.3 Logging
 
-Logs estruturados ajudam na monitoração e diagnóstico de problemas em produção. Prefira bibliotecas como `logrus` ou `zap` para logs mais ricos e configuráveis.
+Logs estruturados ajudam na monitoração e diagnóstico de problemas em produção. Prefira bibliotecas como `log/slog` para logs mais ricos e configuráveis.
 
 **Exemplo:**
 
 ```go
-logger := zap.NewExample()
-logger.Info("iniciando operação",
-    zap.Int("valor", 42),
-    zap.String("status", "inicializado"))
+package main
+
+import (
+	"log/slog"
+)
+
+func main() {
+	// Criando um logger padrão
+	logger := slog.Default()
+
+	// Registrando uma mensagem de informação com campos
+	logger.Info("iniciando operação",
+		slog.Int("valor", 42),
+		slog.String("status", "inicializado"))
+}
 ```
 
 ### 3.4 Testes
