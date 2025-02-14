@@ -17,7 +17,7 @@ Uma das novidades mais interessantes do Go 1.24 é a introdução da diretiva `t
 Por exemplo, para adicionar uma ferramenta chamada `golangci-lint`, você pode executar:
 
 ```bash
-go get -tool golangci-lint
+go get -tool github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.4
 ```
 
 Isso adicionará uma diretiva `tool` ao seu `go.mod`, permitindo que você execute a ferramenta com o comando `go tool golangci-lint`. Além disso, todas as ferramentas declaradas no módulo podem ser atualizadas de uma só vez com `go get tool`.
